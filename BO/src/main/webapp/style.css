@@ -1,0 +1,118 @@
+
+body{
+  background: url("fondo2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+div[class|="col"] {
+  background-color: #333333;
+}
+
+div[class|="col-8"]{
+  border-bottom-left-radius:5px;
+  border-top-left-radius:5px;
+ margin-left: 0px;
+
+}
+
+div[class|="col-4"]{
+  border-bottom-right-radius:5px;
+  border-top-right-radius:5px;
+  justify-items: center;
+  align-items:center;
+  align-content: center;
+}
+
+
+.letra{
+  color: #F4EDED;
+  font-size:28px;
+  margin:auto;
+}
+.letra1{
+  color: #C4C4C4;
+  font-size:15px;
+  font-weight: 470;
+}
+.letra2{
+  color: #F4EDED;
+}
+label{
+  display: block;
+  margin-bottom: 4px;
+  margin-top: 10px;
+  font-size: 14px;
+  color:#E7E7E7;
+  font-weight: 600;
+  
+}
+input{
+  background-color: #2C2C2C;
+  border: #1E1E1E 1px solid;
+  font-size: 20px;
+  width: 90%;
+  padding: 7px;
+  border-radius: 3px;
+  color: #D1CFCF;
+  font-weight: 470;
+}
+
+.aver{
+  margin-bottom: 170px;
+}
+
+.hasolvidado {
+  font-weight: 530;
+  font-size: 14px;
+  color:#D3991C;
+  text-decoration: none;
+}
+.enviar{
+  border: none;
+  width: 90%;
+  font-size: 18px;
+  height:11% ;
+  color: #F9F9F9;
+  background:#DEA93A ;
+  margin-bottom: 10px;
+  margin-top: 18px;
+  border-radius: 4px;
+}
+
+.registarseb{
+  border: none;
+  width: 90%;
+  font-size: 18px;
+  height:8% ;
+  color: #F9F9F9;
+  background:#45D495 ;
+  margin-bottom: 10px;
+  margin-top: 18px;
+  border-radius: 4px;
+}
+.need{
+  color: #8A8A8A;
+  font-size:14px;
+}
+.registrarse{
+  color:#D3991C;
+  text-decoration: none;
+  font-size:14px;
+}
+
+.textold{
+  color: #CACACA;
+  text-align: center;
+
+}
+
+.registerimg{
+  width: auto;
+  height: auto;
+}
+
+.centrar{
+  justify-items: center;
+}
+
