@@ -61,7 +61,7 @@
          <a class="hasolvidado "href="loginclient.jsp">¿Has olvidado la contraseña?</a>
          <br>
         <button type="button" class="enviar" onclick="comparar()">
-					<i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+					 Iniciar Sesión
 				</button>
 				<div id="error" class="alert alert-danger visually-hidden"
 					role="alert">Usuario o contraseña incorrecta!</div>
@@ -88,7 +88,7 @@
 <br>
   <nav class="navbar static-bottom navbar-dark bg-dark">
   <div class="footer1" style="padding-left:25px">
-    <a class="navbar-brand" href="https://trello.com/b/Y2fK6lmN/grupo38-scrum1-proyecto-tienda"> Andres Felipe Caycedo Jimenez / Grupo38 / Scrum 3
+    <a class="navbar-brand" href="https://trello.com/b/Y2fK6lmN/grupo38-scrum1-proyecto-tienda">  Grupo38 / Scrum 3
   </div>
 </nav>
 			<!--  

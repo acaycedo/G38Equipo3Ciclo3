@@ -62,7 +62,7 @@ public ArrayList<ClienteVO> listaDeClientes() {
 			Cliente.setDireccion_cliente(res.getString("direccion_cliente"));
 			Cliente.setEmail_cliente(res.getString("email_cliente"));
 			Cliente.setNombre_cliente(res.getString("nombre_cliente"));
-			Cliente.setTelefono_cliente(res.getString("telefono_cliente("));
+			Cliente.setTelefono_cliente(res.getString("telefono_cliente"));
 
 			listaclientes.add(Cliente);
 		}

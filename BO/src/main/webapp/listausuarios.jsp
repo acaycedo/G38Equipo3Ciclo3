@@ -114,15 +114,6 @@
 	</div>
 
 
-	<nav class="navbar fixed-bottom navbar-dark bg-dark">
-		<div class="row justify-content-between">
-			<div class="col-4">
-				<a class="navbar-brand links" href="https://trello.com/b/Y2fK6lmN/grupo38-scrum1-proyecto-tienda"><i class="fas fa-code"></i>
-					Andres Felipe Caycedo Jimenez / Grupo38 / Scrum 3</a>
-			</div>
-		</div>
-	</nav>
-
 
 </body>
 </html>

@@ -150,15 +150,7 @@
 		</div>
 
 	</div>
-	<nav class="navbar fixed-bottom navbar-dark bg-dark">
-		<div class="row justify-content-between">
-			<div class="col-4">
-				<a class="navbar-brand links" href="#"><i class="fas fa-code"></i>
-					Andres Felipe Caycedo Jimenez / Grupo38 / Scrum 3 <i
-					class="fas fa-code-branch"></i></a>
-			</div>
-		</div>
-	</nav>
+
 	<script>
 		function enviar() {
 			var x = document.getElementById("user").value;
