@@ -129,7 +129,7 @@
 						<i class="fas fa-search"></i> Buscar un cliente
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listacliente.jsp'">
+						onclick="window.location.href='/listaclientes.jsp'">
 						<i class="fas fa-search"></i> Listar todos los cliente
 					</button>
 				</div>
@@ -139,31 +139,26 @@
 	</div>
 	<script>
 		function actualizar() {
-			var x = document.getElementById("nombre_cliente").value;
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
 			req.open('GET', 'http://localhost:8080/listarclientes', false);
 			req.send(null);
-			var usuarios = null;
+			var clientes = null;
 			if (req.status == 200)
-				usuarios = JSON.parse(req.responseText);
+				clientes = JSON.parse(req.responseText);
 			console.log(JSON.parse(req.responseText));
-			for (i = 0; i < usuarios.length; i++) {
-				console.log(usuarios[i].usuario);
-				console.log(usuarios[i].cedula_usuario);
-				if (usuarios[i].usuario === x) {
-					console.log(usuarios[i].usuario + " " + x);
-					coincidencia = true
-					break;
-				}
-				if (usuarios[i].cedula_usuario === y) {
-					console.log(usuarios[i].cedula_usuario + " " + y);
-					coincidencia = true
+			for (i = 0; i < clientes.length; i++) {
+				
+				console.log(clientes[i].cedula_cliente);
+				if (clientes[i].cedula_cliente == y) {
+					console.log(clientes[i].cedula_cliente + " " + y);
+					coincidencia = true;
 					break;
 				}
 			}
 			console.log(coincidencia);
+
 			if (coincidencia != false) {
 				var formData = new FormData();
 				formData.append("cedula_cliente", document
@@ -178,16 +173,19 @@
 						document.getElementById("telefono_cliente").value);
 				var xhr = new XMLHttpRequest();
 				xhr.open("PUT", "http://localhost:8080/actualizarclientes");
+
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
+
 				document.getElementById("cedula_cliente").value = "";
-				document.getElementById("direccion_clienteo").value = "";
+				document.getElementById("direccion_cliente").value = "";
 				document.getElementById("email_cliente").value = "";
 				document.getElementById("nombre_cliente").value = "";
 				document.getElementById("telefono_cliente").value = "";
 				xhr.send(formData);
+
 			} else {
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
