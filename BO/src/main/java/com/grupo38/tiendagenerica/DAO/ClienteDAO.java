@@ -88,7 +88,7 @@ public ArrayList<ClienteVO> listaDeClientes() {
 	return listaclientes;
 }
 
-public void eliminarCiente(Integer cedula_cliente) {
+public void eliminarCliente(Integer cedula_cliente) {
 	
 	//instancia de la conexion
 	Conexion conex = new Conexion();

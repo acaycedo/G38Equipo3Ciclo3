@@ -38,7 +38,7 @@ public class ClienteController {
 	@DeleteMapping("/eliminarcliente")
 	public void eliminarCliente(Integer cedula_cliente) {
 		ClienteDAO Dao = new ClienteDAO();
-		Dao.eliminarCiente(cedula_cliente);
+		Dao.eliminarCliente(cedula_cliente);
 	}
 	
 	@PutMapping("/actualizarclientes")
