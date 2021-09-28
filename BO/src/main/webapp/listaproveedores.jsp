@@ -27,31 +27,31 @@
 
 
 <script>
-	var baseurl = "http://localhost:8080/listarclientes";
-	function loadclientes() {
+	var baseurl = "http://localhost:8080/listarproveedores";
+	function loadproveedores() {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var clientes = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Direccion</th><th>Email</th><th>Nombre</th><th>Telefono</th></tr>";
+				var proveedores = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-info table-striped'><tr><th>NIT</th><th>Ciudad</th><th>Direccion</th><th>Nombre</th><th>Telefono</th></tr>";
 				var main = "";
-				for (i = 0; i < clientes.length; i++) {
-					main += "<tr><td>" +  clientes[i].cedula_cliente
-							+ "</td><td>" + clientes[i].direccion_cliente
-							+ "</td><td>" + clientes[i].email_cliente
-							+ "</td><td>" + clientes[i].nombre_cliente 
-							+ "</td><td>"+ clientes[i].telefono_cliente + "</td></tr>";
+				for (i = 0; i < proveedores.length; i++) {
+					main += "<tr><td>" +  proveedores[i].nitproveedor
+							+ "</td><td>" + proveedores[i].ciudad_proveedor
+							+ "</td><td>" + proveedores[i].direccion_proveedor
+							+ "</td><td>" + proveedores[i].nombre_proveedor 
+							+ "</td><td>"+ proveedores[i].telefono_proveedor + "</td></tr>";
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
-				document.getElementById("clientesinfo").innerHTML = tbl;
+				document.getElementById("proveedoresinfo").innerHTML = tbl;
 			}
 		};
 		xmlhttp.send();
 	}
 	window.onload = function() {
-		loadclientes();
+		loadproveedores();
 	}
 </script>
 
@@ -84,11 +84,11 @@
 	
 	<div style="padding-left: 5px;">
 	
-		<h3 style="paddinf-top: 5px;"> Tabla de Clientes</h3>
+		<h3 style="paddinf-top: 5px;"> Tabla de Proveedores</h3>
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
-					<div class="col align-self-center" id="clientesinfo">
+					<div class="col align-self-center" id="proveedoresinfo" >
 					
 					</div>
 	
@@ -96,23 +96,23 @@
 			</div>
 	
 		<h3> Operaciones</h3>
-			<div class="container">
+			<div class="container" style="width:220px">
 				<div class="row">
 					<button type="button" class="btn btn-success"
-						onclick="window.location.href='/insertarcliente.jsp'">
-						<i class="fas fa-plus-circle"></i> Agregar cliente
+						onclick="window.location.href='/insertarproveedor.jsp'">
+						<i class="fas fa-plus-circle"></i> Agregar proveedor
 					</button>
 					<button type="button" class="btn btn-danger"
-						onclick="window.location.href='/eliminarcliente.jsp'">
-						<i class="fas fa-trash"></i> Eliminar cliente
+						onclick="window.location.href='/eliminarproveedor.jsp'">
+						<i class="fas fa-trash"></i> Eliminar proveedor
 					</button>
 					<button type="button" class="btn btn-warning"
-						onclick="window.location.href='/actualizarcliente.jsp'">
-						<i class="fas fa-pen-alt"></i> Actualizar cliente
+						onclick="window.location.href='/actualizarproveedor.jsp'">
+						<i class="fas fa-pen-alt"></i> Actualizar proveedor
 					</button>
 					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/buscarcliente.jsp'">
-						<i class="fas fa-search"></i> Buscar un cliente
+						onclick="window.location.href='/buscarproveedor.jsp'">
+						<i class="fas fa-search"></i> Buscar un proveedor
 					</button>
 				</div>
 			</div>

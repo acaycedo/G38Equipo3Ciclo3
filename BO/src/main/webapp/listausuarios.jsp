@@ -69,7 +69,7 @@
 			<i class="fas fa-users"></i> Usuarios</a> 
 			<a class="navbar-brand links" href="listaclientes.jsp">
 			<i class="fas fa-address-book"></i> Clientes</a>
-			<a class="navbar-brand links" href="listausuarios.jsp">
+			<a class="navbar-brand links" href="listaproveedores.jsp">
 			<i class="fas fa-truck"></i> Proveedores</a>
 			<a class="navbar-brand links" href="listausuarios.jsp">
 			<i class="fas fa-apple-alt"></i> Productos</a>
@@ -79,7 +79,6 @@
 			<i class="fas fa-clipboard-list"></i> Reportes</a>
 		</div>
 	</nav>
-	
 	
 	<!-- contenido  -->
 	
@@ -99,7 +98,7 @@
 		<h3> Operaciones</h3>
 			<div class="container">
 				<div class="row">
-					<button type="button" class="btn btn-success"
+					<button type="button" class="btn btn-success" 
 						onclick="window.location.href='/insertarusuario.jsp'">
 						<i class="fas fa-plus-circle"></i> Agregar usuario
 					</button>
@@ -115,10 +114,7 @@
 						onclick="window.location.href='/buscarusuario.jsp'">
 						<i class="fas fa-search"></i> Buscar un usuario
 					</button>
-					<button type="button" class="btn btn-primary"
-						onclick="window.location.href='/listausuarios.jsp'">
-						<i class="fas fa-search"></i> Listar todos los usuarios
-					</button>
+
 				</div>
 			</div>
 	</div>
