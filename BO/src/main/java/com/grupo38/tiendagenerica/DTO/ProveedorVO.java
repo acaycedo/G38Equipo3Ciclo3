@@ -1,12 +1,17 @@
 package com.grupo38.tiendagenerica.DTO;
 
-public class ProveedorVO {
-	
+import java.io.Serializable;
+
+public class ProveedorVO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private Integer nitproveedor;
 	private String ciudad_proveedor;
 	private String direccion_proveedor;
 	private String nombre_proveedor;
 	private String telefono_proveedor;
+	
+	
 	public Integer getNitproveedor() {
 		return nitproveedor;
 	}
@@ -37,6 +42,11 @@ public class ProveedorVO {
 	public void setTelefono_proveedor(String telefono_proveedor) {
 		this.telefono_proveedor = telefono_proveedor;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
+	
+
 	
 }
