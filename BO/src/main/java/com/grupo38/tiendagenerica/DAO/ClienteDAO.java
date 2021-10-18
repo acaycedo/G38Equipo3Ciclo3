@@ -125,7 +125,6 @@ public void eliminarCliente(Integer cedula_cliente) {
 	}
 
 }
-
 public void actualizarCliente(ClienteVO user) {
 	
 	//instancia de conexion
@@ -175,29 +174,29 @@ public void actualizarCliente(ClienteVO user) {
  * @param documento
  * @return
  */
-public ArrayList<ClienteVO> consultarCliente(String nombre_cliente) {	
-	//lista que contendra el o los usuarios obtenidos
-	ArrayList<ClienteVO> listausuarios = new ArrayList<ClienteVO>();		
+public ArrayList<ClienteVO> consultarCliente(Integer client) {	
+	//lista que contendra el o los Clientes obtenidos
+	ArrayList<ClienteVO> listaClientes = new ArrayList<ClienteVO>();		
 	//instancia de la conexión
 	Conexion conex = new Conexion();
 	try {
 		//prepare la sentencia en la base de datos
 		PreparedStatement consulta = conex.getConnection()
-				.prepareStatement("SELECT * FROM clientes where nombre_cliente = ? ");		
+				.prepareStatement("SELECT * FROM clientes where cedula_cliente = ? ");		
 		// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
-		consulta.setString(1, nombre_cliente);			
+		consulta.setInt(1, client);			
 		//ejecute la sentencia
 		ResultSet res = consulta.executeQuery();			
 		//cree un objeto basado en la clase entidad con los datos encontrados
 		if (res.next()) {
-			ClienteVO Cliente = new ClienteVO();
-			Cliente.setCedula_cliente(Integer.parseInt(res.getString("cedula_cliente")));
-			Cliente.setDireccion_cliente(res.getString("direccion_cliente"));
-			Cliente.setEmail_cliente(res.getString("email_cliente"));
-			Cliente.setNombre_cliente(res.getString("nombre_cliente"));
-			Cliente.setTelefono_cliente(res.getString("telefono_cliente"));
+			ClienteVO newcliente = new ClienteVO();
+			newcliente.setCedula_cliente(Integer.parseInt(res.getString("cedula_cliente")));
+			newcliente.setDireccion_cliente(res.getString("direccion_cliente"));
+			newcliente.setEmail_cliente(res.getString("email_cliente"));
+			newcliente.setNombre_cliente(res.getString("nombre_cliente"));
+			newcliente.setTelefono_cliente(res.getString("telefono_cliente"));
 
-			listausuarios.add(Cliente);
+			listaClientes.add(newcliente);
 		}
 		//cerrar resultado, sentencia y conexión
 		res.close();
@@ -207,18 +206,19 @@ public ArrayList<ClienteVO> consultarCliente(String nombre_cliente) {
 	} catch (SQLException e) {
 		//si hay un error en el sql mostrarlo
 		System.out.println("------------------- ERROR --------------");
-		System.out.println("No se pudo consultar el usuario");
+		System.out.println("No se pudo consultar el Cliente");
 		System.out.println(e.getMessage());
 		System.out.println(e.getErrorCode());
 	} catch (Exception e) {
 		//si hay cualquier otro error mostrarlo
 		System.out.println("------------------- ERROR --------------");
-		System.out.println("No se pudo consultar el usuario");
+		System.out.println("No se pudo consultar el Cliente");
 		System.out.println(e.getMessage());
 		System.out.println(e.getLocalizedMessage());
 	}
-	return listausuarios;
+	return listaClientes;
 }
+
 
 
 

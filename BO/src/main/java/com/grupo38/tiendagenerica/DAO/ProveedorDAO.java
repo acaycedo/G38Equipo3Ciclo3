@@ -126,39 +126,48 @@ public class ProveedorDAO {
 			System.out.println(e.getLocalizedMessage());
 		}
 	}
-	public ArrayList<ProveedorVO> consultarProveedor(String proveedor){
-		
-		ArrayList<ProveedorVO> listaproveedores = new ArrayList<ProveedorVO>();
+	public ArrayList<ProveedorVO> consultarProveedor(Integer provider) {	
+		//lista que contendra el o los proveedors obtenidos
+		ArrayList<ProveedorVO> listaproveedors = new ArrayList<ProveedorVO>();		
+		//instancia de la conexión
 		Conexion conex = new Conexion();
-		
 		try {
-			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM proveedores where nombre_proveedor = ? ");
-			consulta.setString(1, proveedor);
-			ResultSet res = consulta.executeQuery();
+			//prepare la sentencia en la base de datos
+			PreparedStatement consulta = conex.getConnection()
+					.prepareStatement("SELECT * FROM proveedores where nitproveedor = ? ");		
+			// se cambia el comodin ? por el dato que ha llegado en el parametro de la funcion
+			consulta.setInt(1, provider);			
+			//ejecute la sentencia
+			ResultSet res = consulta.executeQuery();			
+			//cree un objeto basado en la clase entidad con los datos encontrados
 			if (res.next()) {
-				ProveedorVO Proveedor = new ProveedorVO();
-				Proveedor.setNitproveedor(Integer.parseInt(res.getString("nitproveedor")));
-				Proveedor.setCiudad_proveedor(res.getString("ciudad_proveedor"));
-				Proveedor.setDireccion_proveedor(res.getString("direccion_proveedor"));
-				Proveedor.setNombre_proveedor(res.getString("nombre_proveedor"));
-				Proveedor.setTelefono_proveedor(res.getString("telefono_proveedor"));
-				listaproveedores.add(Proveedor);
-				
-				res.close();
-				consulta.close();
-				conex.desconectar();
+				ProveedorVO newproveedor = new ProveedorVO();
+				newproveedor.setNitproveedor(Integer.parseInt(res.getString("nitproveedor")));
+				newproveedor.setDireccion_proveedor(res.getString("direccion_proveedor"));
+				newproveedor.setCiudad_proveedor(res.getString("ciudad_proveedor"));
+				newproveedor.setNombre_proveedor(res.getString("nombre_proveedor"));
+				newproveedor.setTelefono_proveedor(res.getString("telefono_proveedor"));
+
+				listaproveedors.add(newproveedor);
 			}
+			//cerrar resultado, sentencia y conexión
+			res.close();
+			consulta.close();
+			conex.desconectar();
+
 		} catch (SQLException e) {
+			//si hay un error en el sql mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar el proveedor");
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
 		} catch (Exception e) {
+			//si hay cualquier otro error mostrarlo
 			System.out.println("------------------- ERROR --------------");
 			System.out.println("No se pudo consultar el proveedor");
 			System.out.println(e.getMessage());
 			System.out.println(e.getLocalizedMessage());
 		}
-		return listaproveedores;
+		return listaproveedors;
 	}
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,49 +8,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Tienda Genérica Grupo 3</title>
+        <title>Tienda GenÃ©rica Grupo 3</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="equipo3"></script>
-
-
-<script>
-var baseurl = "http://localhost:8080/listarproveedores";
-	function loadproveedores() {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl, true);
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var proveedores = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-info table-striped'><tr><th>NIT</th><th>Ciudad</th><th>Direccion</th><th>Nombre</th><th>Telefono</th></tr>";
-				var main = "";
-				for (i = 0; i < proveedores.length; i++) {
-					main += "<tr><td>" +  proveedores[i].nitproveedor
-							+ "</td><td>" + proveedores[i].ciudad_proveedor
-							+ "</td><td>" + proveedores[i].direccion_proveedor
-							+ "</td><td>" + proveedores[i].nombre_proveedor 
-							+ "</td><td>"+ proveedores[i].telefono_proveedor + "</td></tr>";
-				}
-				var tblbottom = "</table>";
-				var tbl = tbltop + main + tblbottom;
-				document.getElementById("proveedoresinfo").innerHTML = tbl;
-			}
-		};
-		xmlhttp.send();
-	}
-	window.onload = function() {
-		loadproveedores();
-	}
-</script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
 </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.jsp">Tienda Genérica</a>
+            <a class="navbar-brand ps-3" href="index.jsp">Tienda GenÃ©rica</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="listaproveedores.jsp"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="index.jsp"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             </form>
@@ -61,7 +30,7 @@ var baseurl = "http://localhost:8080/listarproveedores";
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     	<li><a class="dropdown-item" href="index.jsp">Bienvenido</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="login.jsp">Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item" href="login.jsp">Cerrar SesiÃ³n</a></li>
                     </ul>
                 </li>
             </ul>
@@ -110,77 +79,81 @@ var baseurl = "http://localhost:8080/listarproveedores";
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Proveedores</h1>
+                        <h1 class="mt-4">Reportes</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Escoger una funcion</li>
+                            <li class="breadcrumb-item active">Reportes de ventas</li>
                         </ol>
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <button type="button" class="btn btn-success"
-											onclick="window.location.href='<%=request.getContextPath()%>/insertarproveedor.jsp'">
-											<i class="fas fa-plus-circle"></i> Agregar
-										</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <button type="button" class="btn btn-warning"
-											onclick="window.location.href='<%=request.getContextPath()%>/actualizarproveedor.jsp'">
-											<i class="fas fa-pen-alt"></i> Actualizar
-										</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <button type="button" class="btn btn-primary"
-											onclick="window.location.href='<%=request.getContextPath()%>/buscarproveedor.jsp'">
-											<i class="fas fa-search"></i> Buscar
-										</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <button type="button" class="btn btn-danger"
-											onclick="window.location.href='<%=request.getContextPath()%>/eliminarproveedor.jsp'">
-											<i class="fas fa-trash"></i> Eliminar
-									</button>
-                                </div>
-                            </div>
+                            
                         </div>
 				<main>
 			<div
 				class="container-fluid px-4 animate__animated animate__bounceInLeft">
-				
-				
+				                <div class="container-fluid">
 
-			<div class="row">
-				<div class="col-xl-12">
-					<div class="card mb-4">
-						<div class="card-header text-white bg-dark">
-							<i class="fas fa-table"></i> Listado de proveedores
-							</div>
-							<div class="card-body">
-								<div class="col align-self-center" id="proveedoresinfo" >
-					
-					</div>
-	
-							</div>
-						</div>
-					</div>
-				</div>
+                    <!-- Page Heading -->
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Border Left Utilities -->
+                        <div class="col-lg-6">
+
+                            <div class="card mb-4 py-3 border-left-primary">
+                                <div class="card-body">
+                                    Filtrar ventas para buscar un cliente en especial
+                                    <br>
+                                    EN MANTENIMIENTO.
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="card bg-primary text-white mb-4">
+                                    <button type="button" class="btn btn-primary"
+											onclick="window.location.href='<%=request.getContextPath()%>/filtrarventa.jsp'">
+											<i class="fas fa-address-card"></i> Filtrar Ventas
+									</button>
+                                </div>
+
+                            
+
+                        </div>
+
+                        <!-- Border Bottom Utilities -->
+                        <div class="col-lg-6">
+
+                            <div class="card mb-4 py-3 border-bottom-primary">
+                                <div class="card-body">
+                                    Mostrar todas las ventas en una tabla
+                                </div>
+                            </div>
+                            <div class="card bg-primary text-white mb-4">
+                                    <button type="button" class="btn btn-primary"
+											onclick="window.location.href='<%=request.getContextPath()%>/ventascliente.jsp'">
+											<i class="fa fa-window-maximize" aria-hidden="true"></i> Total Ventas
+									</button>
+                                </div>
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+				
 			</div>
 
 		</main>
 
-		<div w3-include-html="snippets/footer.html"></div>	
+		<div w3-include-html="snippets/footer.html"></div>
 
 	</div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Tienda Genérica Grupo 38 Equipo 3</div>
+                            <div class="text-muted">Tienda GenÃ©rica Grupo 38 Equipo 3</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

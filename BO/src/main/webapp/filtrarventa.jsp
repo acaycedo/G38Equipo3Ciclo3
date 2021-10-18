@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,53 +9,16 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Tienda Genérica Grupo 3</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-	rel="stylesheet" />
+<title>Tienda GenÃ©rica Grupo 3</title>
 <link href="css/styles.css" rel="stylesheet" />
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
 	crossorigin="anonymous"></script>
-
-
-<script>
-
-	var baseurl ="http://localhost:8080/listarclientes";
-	function loadclientes() {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl, true);
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				var clientes = JSON.parse(xmlhttp.responseText);
-				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Direccion</th><th>Email</th><th>Nombre</th><th>Telefono</th></tr>";
-				var main = "";
-				for (i = 0; i < clientes.length; i++) {
-					main += "<tr><td>" + clientes[i].cedula_cliente
-							+ "</td><td>" + clientes[i].direccion_cliente
-							+ "</td><td>" + clientes[i].email_cliente
-							+ "</td><td>" + clientes[i].nombre_cliente
-							+ "</td><td>" + clientes[i].telefono_cliente
-							+ "</td></tr>";
-				}
-				var tblbottom = "</table>";
-				var tbl = tbltop + main + tblbottom;
-				document.getElementById("clientesinfo").innerHTML = tbl;
-			}
-		};
-		xmlhttp.send();
-	}
-	window.onload = function() {
-		loadclientes();
-	}
-</script>
-
-
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.jsp">Tienda Genérica</a>
+		<a class="navbar-brand ps-3" href="index.jsp">Tienda GenÃ©rica</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="index.jsp">
@@ -76,7 +39,7 @@
 					<li><a class="dropdown-item" href="index.jsp">Bienvenido</a></li>
 					<li><hr class="dropdown-divider" /></li>
 					<li><a class="dropdown-item" href="login.jsp">Cerrar
-							Sesión</a></li>
+							SesiÃ³n</a></li>
 				</ul></li>
 		</ul>
 	</nav>
@@ -118,7 +81,7 @@
 				</div>
 
 				<div class="sb-sidenav-footer">
-					<div class="small">Usuario:</div>
+					<div class="small">Usuario: admininicial</div>
 					Bienvenido
 				</div>
 			</nav>
@@ -126,44 +89,18 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">Clientes</h1>
+					<h1 class="mt-4">Reportes</h1>
+					<button type="button" class="btn btn-primary"
+						onclick="window.location.href='reportes.jsp'">
+						<i class="fa fa-arrow-left" aria-hidden="true"></i> Regresar
+
+					</button>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">Escoger una funcion</li>
+						<li class="breadcrumb-item active">Filtrar ventas por nombre
+							del cliente</li>
+
 					</ol>
-					<div class="row">
-						<div class="col-xl-3 col-md-6">
-							<div class="card bg-primary text-white mb-4">
-								<button type="button" class="btn btn-success"
-									onclick="window.location.href='<%=request.getContextPath()%>/insertarcliente.jsp'">
-									<i class="fas fa-plus-circle"></i> Agregar
-								</button>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-6">
-							<div class="card bg-warning text-white mb-4">
-								<button type="button" class="btn btn-warning"
-									onclick="window.location.href='<%=request.getContextPath()%>/actualizarcliente.jsp'">
-									<i class="fas fa-pen-alt"></i> Actualizar
-								</button>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-6">
-							<div class="card bg-success text-white mb-4">
-								<button type="button" class="btn btn-primary"
-									onclick="window.location.href='<%=request.getContextPath()%>/buscarcliente.jsp'">
-									<i class="fas fa-search"></i> Buscar
-								</button>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-6">
-							<div class="card bg-danger text-white mb-4">
-								<button type="button" class="btn btn-danger"
-									onclick="window.location.href='<%=request.getContextPath()%>/eliminarcliente.jsp'">
-									<i class="fas fa-trash"></i> Eliminar
-								</button>
-							</div>
-						</div>
-					</div>
+
 					<main>
 						<div
 							class="container-fluid px-4 animate__animated animate__bounceInLeft">
@@ -174,16 +111,41 @@
 								<div class="col-xl-12">
 									<div class="card mb-4">
 										<div class="card-header text-white bg-dark">
-											<i class="fas fa-table"></i> Listado de clientes
+											<i class="fas fa-table"></i> Filtro de Ventas
 										</div>
 										<div class="card-body">
-											<div class="row">
-												<!--  Aqui es donde se autogenera la tabla basado en el script -->
-												<div class="col align-self-center" id="clientesinfo">
+											<div class="container">
+												<div id="error" class="alert alert-danger visually-hidden"
+													role="alert">Error al tratar de consultar el usuario
+													o el usuario no existe.</div>
 
-												</div>
+												<div id="correcto"
+													class="alert alert-success visually-hidden" role="alert">Usuario
+													encontrado con exito</div>
+
+												<form id="form1">
+													<div class="input-group mb-3">
+														<div class="input-group mb-3">
+															<span class="input-group-text" id="basic-addon4">Nombre
+																a Buscar</span> <input type="text" class="form-control"
+																placeholder="Inserte nombre del cliente aquÃ­..."
+																aria-describedby="basic-addon4" required
+																id="cedula_cliente">
+														</div>
+												</form>
+
+												<button type="button" class="btn btn-primary"
+													onclick="enviar()">
+													<i class="fas fa-search"></i> Insertar Datos
+												</button>
+
+
+
+
 
 											</div>
+											<div class="col align-self-center" id="clientesinfo"></div>
+
 										</div>
 									</div>
 								</div>
@@ -200,7 +162,7 @@
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Tienda Genérica Grupo 38 Equipo 3</div>
+						<div class="text-muted">Tienda GenÃ©rica Grupo 38 Equipo 3</div>
 						<div>
 							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
 								&amp; Conditions</a>
@@ -223,4 +185,37 @@
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
 </body>
+<script>
+var baseurl = "http://localhost:8080/registroventa";
+
+	function enviar() {
+		var buscar = document.getElementById("cedula_cliente").value;
+		console.log(buscar);
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+				var total = 0;
+				var nombre;
+				var clientes = JSON.parse(xmlhttp.responseText);
+				var tbltop = "<table class='table table-dark table-striped'><tr><th>Cedula</th><th>Nombre</th><th>Total Venta</th></tr>";
+				var main = "";
+				for (i = 0; i < clientes.length; i++) {
+					var aa = clientes[i].cedula_cliente;
+					console.log(aa);
+					if (aa == buscar) {
+						total += clientes[i].total_venta;
+						nombre = clientes[1].nombre_cliente;
+					}
+				}
+				main += "<tr><td>" + buscar + "</td><td>" + nombre
+						+ "</td><td>" + total + "</td></tr>";
+				var tblbottom = "</table>";
+				var tbl = tbltop + main + tblbottom;
+				document.getElementById("clientesinfo").innerHTML = tbl;
+			}
+		};
+		xmlhttp.send();
+	}
+</script>
 </html>

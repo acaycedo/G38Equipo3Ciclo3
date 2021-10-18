@@ -36,9 +36,9 @@ public class ProveedorController {
 		Dao.actualizarProveedor(proveedores);
 	}
 	@GetMapping("/consultarproveedor")
-	public ArrayList<ProveedorVO> consultarProveedor(String Proveedor){
+	public ArrayList<ProveedorVO> consultarProveedor(Integer nit) {
 		ProveedorDAO Dao = new ProveedorDAO();
-		return Dao.consultarProveedor(Proveedor);
-	}
+		return Dao.consultarProveedor(nit);
+}
 }
 
